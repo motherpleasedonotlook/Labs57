@@ -4,7 +4,11 @@
     <title>Three flies</title>
 </head>
 <body>
-<h1>THREE FLIES</h1>
+<h1>THREE FLIES | <a href="/login">Sign in</a></h1>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <input type="submit" value="Logout"/>
+</form>
 <h4>Social network for ones who love picturing flies</h4>
 <form action="/" method="get">
     Search for title: <input type="text" name="title"><br>
