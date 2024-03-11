@@ -12,10 +12,8 @@
 
 <b>Title</b>${banner.title}<br>
 <b>Description</b>${banner.description}<br>
-<b>Author</b>${banner.author}<br>
+<b>Author</b>${banner.user.name}<br>
 <hr>
-<form action="/banner/delete/${banner.id}" method="post">
-    <input type = "submit" value="Delete this post"/>
-</form>
+
 </body>
 </html>

@@ -23,12 +23,13 @@ public class Banner {
     private String title;
     @Column(name = "description", columnDefinition = "text")
     private String description;
-    @Column(name = "author")
-    private String author;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "banner")
 
     private List<Image> images = new ArrayList<>();
     private Long previewImageId;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn
+    private User user;
     private LocalDateTime dateOfCreated;
     @PrePersist
     private void init(){
