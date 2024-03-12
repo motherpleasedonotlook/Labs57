@@ -11,6 +11,9 @@
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <input type="submit" value="Logout"/>
     </form>
+    <#if user.isAdmin()>
+        <a href="/admin">Administrator panel</a>
+    </#if>
 <#else>
     <a href="/login">Sign in</a>
 </#if>
@@ -22,7 +25,7 @@
 </form>
 <#list banners as banner>
     <div>
-        <p><b>${banner.title}</b> ${banner.author} | <a href="/banner/${banner.id}">Read more...</a> </p>
+        <p><b>${banner.title}</b> ${banner.user.name} | <a href="/banner/${banner.id}">Read more...</a> </p>
     </div>
     <#else>
     <h3>No posts... :(</h3>

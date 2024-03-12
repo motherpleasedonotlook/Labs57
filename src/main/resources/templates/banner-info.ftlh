@@ -12,8 +12,6 @@
 
 <b>Title</b>${banner.title}<br>
 <b>Description</b>${banner.description}<br>
-<b>Author</b>${banner.user.name}<br>
-<hr>
-
+<b>Author</b><a href="/user/${banner.user.id}">${banner.user.name}</a><br>
 </body>
 </html>

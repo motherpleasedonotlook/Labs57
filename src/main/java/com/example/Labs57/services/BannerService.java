@@ -45,8 +45,8 @@ public class BannerService {
          banner.addImageToBanner(image3);
       }
       log.info("Saving new Banner. Title:{}; Author email:{}",banner.getTitle(),banner.getUser().getEmail());
-      Banner bannerFromDb = bannerRepository.save(banner);
-      bannerFromDb.setPreviewImageId(bannerFromDb.getImages().get(0).getId());
+      //Banner bannerFromDb = bannerRepository.save(banner);
+      //bannerFromDb.setPreviewImageId(bannerFromDb.getImages().get(0).getId());
       bannerRepository.save(banner);
    }
 
