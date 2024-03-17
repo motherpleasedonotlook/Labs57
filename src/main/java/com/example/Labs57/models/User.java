@@ -45,6 +45,8 @@ public class User implements UserDetails {
 
     public boolean isAdmin(){return roles.contains(Role.ROLE_ADMIN);}
 
+    public boolean isModerator(){return roles.contains(Role.ROLE_MODERATOR);}
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
