@@ -5,6 +5,7 @@
 </head>
 <body>
 <h1>THREE FLIES </h1><hr>
+<h4>Social network for ones who love picturing flies</h4>
 <#if user.email??>
     <h3>Username: <i>${user.name}</i></h3>
     <form action="/logout" method="post">
@@ -18,11 +19,13 @@
     <a href="/login">Sign in</a>
 </#if>
 <hr>
-<h4>Social network for ones who love picturing flies</h4>
+
+<#if user.email??>
 <form action="/" method="get">
     Search for title: <input type="text" name="title">
     <input type="submit" value="Search"/>
 </form>
+
 <#list banners as banner>
     <div>
         <p><b>${banner.title}</b> ${banner.user.name} | <a href="/banner/${banner.id}">Read more...</a> </p>
@@ -30,7 +33,6 @@
     <#else>
     <h3>No posts... :(</h3>
 </#list>
-<#if user.email??>
 <hr>
 <h3>Add your news</h3>
 <form action = "/banner/create" method = "post" enctype="multipart/form-data">
