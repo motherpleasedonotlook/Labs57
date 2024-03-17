@@ -26,7 +26,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/registration").permitAll()
                         .requestMatchers("/banners/**", "/image/**")
-                        .hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
+                        .hasAnyAuthority("ROLE_ADMIN","ROLE_USER","ROLE_MODERATOR")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
