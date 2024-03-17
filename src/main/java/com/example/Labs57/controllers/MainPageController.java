@@ -1,6 +1,7 @@
 package com.example.Labs57.controllers;
 
 import com.example.Labs57.models.Banner;
+import com.example.Labs57.models.enums.Role;
 import com.example.Labs57.services.BannerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -25,10 +26,11 @@ public class MainPageController {
         return "banners";
     }
     @GetMapping("/banner/{id}")
-    public String bannerInfo(@PathVariable Long id, Model model){
+    public String bannerInfo(@PathVariable Long id, Principal principal, Model model){
         Banner banner = bannerService.getBannerById(id);
         model.addAttribute("banner",banner);
         model.addAttribute("images", banner.getImages());
+        model.addAttribute("user",bannerService.getUserByPrincipal(principal));
         return "banner-info";
 
     }

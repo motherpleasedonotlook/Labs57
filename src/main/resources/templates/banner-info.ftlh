@@ -12,8 +12,13 @@
 
 <b>Title</b>${banner.title}<br>
 <b>Description</b>${banner.description}<br>
-<b>Author</b>${banner.user.name}<br>
-<hr>
+<b>Author</b><a href="/user/${banner.user.id}">${banner.user.name}</a><br>
+<#if user.isAdmin()>
+    <form action="/banner/delete/${banner.id}" method="post">
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
+        <input type="submit" value="Delete post"/>
+    </form>
+</#if>
 
 </body>
 </html>
